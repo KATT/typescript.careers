@@ -24,7 +24,7 @@ function useFilters() {
   });
 }
 
-function SearchInput() {
+function SearchForm() {
   const params = useFilters();
   const [value, setValue] = useState(params.values.q);
   const debouncedChange = useDebouncedCallback((newValue: string) => {
@@ -36,7 +36,7 @@ function SearchInput() {
   }, [params.values.q]);
 
   return (
-    <>
+    <form onSubmit={(e) => e.preventDefault()}>
       <input
         type="search"
         id="search"
@@ -51,7 +51,10 @@ function SearchInput() {
         }}
         value={value}
       />
-    </>
+      <noscript>
+        <input type="submit" />
+      </noscript>
+    </form>
   );
 }
 function HeroSection() {
@@ -73,12 +76,7 @@ function HeroSection() {
         .
       </p>
       <div className="max-w-md mx-auto mt-5 sm:flex sm:justify-center md:mt-8">
-        <form onSubmit={(e) => e.preventDefault()}>
-          <SearchInput />
-          <noscript>
-            <input type="submit" />
-          </noscript>
-        </form>
+        <SearchForm />
       </div>
     </div>
   );

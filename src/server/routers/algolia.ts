@@ -29,9 +29,10 @@ export const algoliaRouter = createRouter()
 
       const raw = await algoliaIndex.search<AlgoliaJob>(query, {
         page,
+        filters: '__tags:not-deleted',
       });
 
-      const fieldsForHighlights = ['title', 'tags'] as const;
+      const fieldsForHighlights = ['title', 'tags', 'location'] as const;
       const relevantFields = [
         'id',
         // pick only what we need for page

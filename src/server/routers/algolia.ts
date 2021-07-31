@@ -38,6 +38,7 @@ export const algoliaRouter = createRouter()
         ...fieldsForHighlights,
         'id',
         '__score',
+        'company',
       ] as const;
 
       const res = {
@@ -46,7 +47,7 @@ export const algoliaRouter = createRouter()
           const essentials = _.pick(job, relevantFields);
 
           // ugly way of overriding job deets with markdown with highlights
-          for (const key of relevantFields) {
+          for (const key of fieldsForHighlights) {
             const hl = job._highlightResult?.[key];
             if (!hl) {
               continue;

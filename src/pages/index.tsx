@@ -5,6 +5,12 @@ import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { trpc } from '../utils/trpc';
+import {
+  CalendarIcon,
+  LocationMarkerIcon,
+  UsersIcon,
+  OfficeBuildingIcon,
+} from '@heroicons/react/solid';
 
 function useFilters() {
   return useParams({
@@ -124,34 +130,82 @@ export default function IndexPage() {
         Jobs
         {jobsQuery.status === 'loading' && '(loading)'}
       </h2>
-      {jobsQuery.data?.hits.map((item) => {
-        return (
-          <article key={item.id}>
-            <h3>
-              <ReactMarkdown allowedElements={['em']} unwrapDisallowed>
-                {item.title}
-              </ReactMarkdown>
-            </h3>
-            {item.tags.length > 0 && (
-              <p>
-                tags:{' '}
-                {item.tags.map((tag, index) => (
-                  <span key={index}>
-                    <ReactMarkdown allowedElements={['em']} unwrapDisallowed>
-                      {tag}
-                    </ReactMarkdown>
-                    {index < item.tags.length - 1 ? ', ' : ''}
-                  </span>
-                ))}
-              </p>
-            )}
-            <p>__score: {item.__score}</p>
-            <Link href={`/job/${item.$slug}`}>
-              <a>View job</a>
-            </Link>
-          </article>
-        );
-      })}
+      <div className="bg-white shadow overflow-hidden sm:rounded-md max-w-5xl mx-auto">
+        <ul className="divide-y divide-gray-200">
+          {jobsQuery.data?.hits.map((item) => {
+            return (
+              <article key={item.id}>
+                <Link href={`/job/${item.$slug}`}>
+                  <a className="block hover:bg-gray-50">
+                    <div className="px-4 py-4 sm:px-6">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-sm font-medium text-indigo-600 truncate">
+                          <ReactMarkdown
+                            allowedElements={['em']}
+                            unwrapDisallowed
+                          >
+                            {item.title}
+                          </ReactMarkdown>
+                        </h3>
+                        <div className="ml-2 flex-shrink-0 flex">
+                          {item.tags.length > 0 && (
+                            <ul className="flex space-x-1">
+                              {item.tags.map((tag, index) => (
+                                <span
+                                  key={index}
+                                  className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                                >
+                                  <ReactMarkdown
+                                    allowedElements={['em']}
+                                    unwrapDisallowed
+                                  >
+                                    {tag}
+                                  </ReactMarkdown>
+                                </span>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      </div>
+                      <div className="mt-2 sm:flex sm:justify-between">
+                        <div className="sm:flex">
+                          <p className="flex items-center text-sm text-gray-500">
+                            <UsersIcon
+                              className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
+                              aria-hidden="true"
+                            />
+                            {item.title}
+                          </p>
+                          <p className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">
+                            <OfficeBuildingIcon
+                              className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
+                              aria-hidden="true"
+                            />
+                            {item.company.name}
+                          </p>
+                        </div>
+                        <div className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
+                          <CalendarIcon
+                            className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
+                            aria-hidden="true"
+                          />
+                          <p>
+                            Published on{' '}
+                            <time dateTime={item.publishDate.toJSON()}>
+                              {item.publishDate.toDateString()}
+                            </time>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </Link>
+                <h3></h3>
+              </article>
+            );
+          })}
+        </ul>
+      </div>
 
       <hr />
       <div>

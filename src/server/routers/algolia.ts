@@ -43,7 +43,7 @@ export const algoliaRouter = createRouter()
       ] as const;
 
       const res = {
-        ..._.pick(raw, ['nbHits', 'pages', 'page', 'nbPages']),
+        ..._.pick(raw, ['nbHits', 'pages', 'page', 'nbPages', 'hitsPerPage']),
         hits: raw.hits.map((job) => {
           const essentials = _.pick(job, relevantFields);
 

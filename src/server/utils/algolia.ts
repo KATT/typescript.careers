@@ -23,6 +23,8 @@ async function getAlgoliaEntries(since: Date | null) {
   const words: [string, number][] = [
     ['typescript', 10],
     ['node.js', 2],
+    ['nodejs', 2],
+    ['deno', 3],
     ['react', 1],
     ['svelte', 1],
     ['vue', 1],

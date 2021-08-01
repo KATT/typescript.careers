@@ -11,7 +11,10 @@ import { useEffect } from 'react';
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   useEffect(() => {
-    splitbee.init();
+    splitbee.init({
+      scriptUrl: '/bee.js',
+      apiUrl: '/_hive',
+    });
   }, []);
 
   return (

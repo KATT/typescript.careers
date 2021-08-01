@@ -4,10 +4,16 @@ import { withTRPC } from '@trpc/next';
 import { AppType } from 'next/dist/next-server/lib/utils';
 import { AppRouter } from 'server/routers/app';
 import superjson from 'superjson';
+import splitbee from '@splitbee/web';
 import 'tailwindcss/tailwind.css';
 import 'styles/global.css';
+import { useEffect } from 'react';
 
 const MyApp: AppType = ({ Component, pageProps }) => {
+  useEffect(() => {
+    splitbee.init();
+  }, []);
+
   return (
     <>
       <div className="flex flex-col justify-between min-h-screen">

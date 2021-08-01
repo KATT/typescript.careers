@@ -17,6 +17,7 @@ import ReactMarkdown from 'react-markdown';
 import { useIsDev } from '../hooks/useIsDev';
 import { inferQueryOutput, useQuery, useUtils } from '../utils/trpc';
 import Image from 'next/image';
+import { A } from 'components/A';
 
 function useFilters() {
   return useParams({
@@ -92,14 +93,14 @@ function HeroSection() {
           (currently sourcing from{' '}
           {sources.data?.map((source, index) => (
             <Fragment key={source.slug}>
-              <a
+              <A
                 href={source.url}
                 className="hover:underline"
                 target="_blank"
                 rel="noreferrer"
               >
                 {source.name}
-              </a>
+              </A>
               {index < sources.data.length - 1 ? ', ' : ''}
             </Fragment>
           ))}

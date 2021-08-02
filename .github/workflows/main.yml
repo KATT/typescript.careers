@@ -4,6 +4,9 @@ jobs:
   e2e:
     env:
       NODE_ENV: test
+      ALGOLIA_APP_KEY: HL0PBWJ0L2
+      ALGOLIA_ADMIN_KEY: ${{ secrets.CI_ALGOLIA_ADMIN_KEY }}
+      ALGOLIA_SEARCH_KEY: ${{ secrets.CI_ALGOLIA_SEARCH_KEY }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:

@@ -22,6 +22,42 @@ async function main() {
     }),
   );
   await Promise.all(promises);
+
+  if (process.env.GITHUB_CI) {
+    await prisma.job.upsert({
+      where: {
+        sourceSlug_sourceKey: {
+          sourceKey: 'tmp',
+          sourceSlug: 'remoteok',
+        },
+      },
+      update: {
+        publishDate: new Date(),
+      },
+      create: {
+        title: 'TypeScript Job',
+        text: 'Some text',
+        url: 'https//example.com',
+        applyUrl: 'https//example.com',
+        remote: true,
+        location: 'Nowhere',
+        publishDate: new Date(),
+        tags: [],
+        jobType: 'UNKNOWN',
+        sourceKey: 'tmp',
+        source: {
+          connect: {
+            slug: 'remoteok',
+          },
+        },
+        company: {
+          create: {
+            name: 'test',
+          },
+        },
+      },
+    });
+  }
 }
 
 main()

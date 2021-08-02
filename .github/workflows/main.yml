@@ -4,7 +4,7 @@ jobs:
   e2e:
     env:
       ALGOLIA_ADMIN_KEY: ${{ secrets.CI_ALGOLIA_ADMIN_KEY }}
-      ALGOLIA_APP_KEY: HL0PBWJ0L2
+      ALGOLIA_APP_ID: HL0PBWJ0L2
       ALGOLIA_SEARCH_KEY: ${{ secrets.CI_ALGOLIA_SEARCH_KEY }}
       DATABASE_URL: postgresql://postgres:@localhost:5432/trpcdb
       NODE_ENV: test

@@ -23,7 +23,7 @@ async function main() {
   );
   await Promise.all(promises);
 
-  if (process.env.GITHUB_CI) {
+  if (process.env.NODE_ENV === 'test' && process.env.GITHUB_CI) {
     await prisma.job.upsert({
       where: {
         sourceSlug_sourceKey: {

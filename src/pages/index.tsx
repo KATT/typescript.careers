@@ -11,6 +11,7 @@ import { Footer } from 'components/Footer';
 import { Main } from 'components/Main';
 import { useDebouncedCallback } from 'hooks/useDebouncedCallback';
 import { useParams } from 'hooks/useParams';
+import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -333,7 +334,10 @@ export default function IndexPage() {
         <title>TypeScript.careers</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <NextSeo
+        title="TypeScript.careers"
+        description="A niche job board - only for TypeScript jobs - aggregated from a bunch of places."
+      />
       <HeroSection />
       <Main>
         <div

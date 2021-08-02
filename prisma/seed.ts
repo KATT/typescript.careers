@@ -23,7 +23,7 @@ async function main() {
   );
   await Promise.all(promises);
 
-  if (process.env.NODE_ENV === 'test' && process.env.GITHUB_CI) {
+  if (process.env.NODE_ENV === 'test') {
     await prisma.job.upsert({
       where: {
         sourceSlug_sourceKey: {
@@ -33,9 +33,10 @@ async function main() {
       },
       update: {
         publishDate: new Date(),
+        deletedAt: null,
       },
       create: {
-        title: 'TypeScript Job',
+        title: 'Seed TypeScript Job',
         text: 'Some text',
         url: 'https//example.com',
         applyUrl: 'https//example.com',

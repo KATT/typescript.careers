@@ -7,7 +7,6 @@ jobs:
       ALGOLIA_APP_KEY: HL0PBWJ0L2
       ALGOLIA_SEARCH_KEY: ${{ secrets.CI_ALGOLIA_SEARCH_KEY }}
       DATABASE_URL: postgresql://postgres:@localhost:5432/trpcdb
-      GITHUB_CI: 1
       NODE_ENV: test
     runs-on: ${{ matrix.os }}
     strategy:
@@ -32,10 +31,6 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - run: yarn build-vercel
-      - run: | 
-        yarn start &
-        npx wait-port http://:3000/api/trpc/algolia.reindex --timeout 10000
-        lsof -ti:3000 | xargs kill -9
 
       - run: yarn lint
 

@@ -9,6 +9,7 @@ test('go to /', async () => {
   await page.goto('http://localhost:3000');
 
   await page.waitForSelector(`text=Seed TypeScript Job`);
+  await page.waitForSelector(`text=Nowhere`);
 });
 
 export {};

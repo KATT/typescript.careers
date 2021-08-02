@@ -50,7 +50,7 @@ function SearchForm() {
   const params = useFilters();
   const [value, setValue] = useState(params.values.q);
   const debouncedChange = useDebouncedCallback((newValue: string) => {
-    params.setParams({ q: newValue, page: 0 });
+    params.setParams({ q: newValue, page: 1 });
   }, 300);
 
   useEffect(() => {

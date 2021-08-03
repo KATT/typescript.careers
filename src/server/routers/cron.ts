@@ -45,6 +45,7 @@ export const cronRouter = createRouter()
     },
   })
   .query('keep-fresh', {
+    // endpoint for periodically fetching home page and keeping it edge-cached
     async resolve({ ctx }) {
       const res = await fetch(ctx.APP_URL);
       if (!res.ok) {

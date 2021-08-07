@@ -18,10 +18,11 @@ model AppState {
 }
 
 model Company {
-  id      String  @id @default(uuid())
-  name    String  @unique
-  logoUrl String?
-  url     String?
+  id       String  @id @default(uuid())
+  name     String  @unique
+  logoUrl  String?
+  logoLqip String?
+  url      String?
 
   Job Job[]
 }

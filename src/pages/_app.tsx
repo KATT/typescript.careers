@@ -38,7 +38,7 @@ const MyApp: AppType = ({ Component, pageProps, router }) => {
         }}
       />
       <div className="flex flex-col justify-between min-h-screen">
-        <AnimatePresence initial={false}>
+        <AnimatePresence initial={false} exitBeforeEnter>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

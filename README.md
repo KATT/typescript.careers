@@ -15,6 +15,15 @@
 
 ## Setup
 
+### Requirements
+
+- Docker (for running postgres)
+- Node
+- yarn
+
+
+### Start project
+
 ```bash
 npx create-next-app --example https://github.com/trpc/trpc --example-path examples/next-prisma-starter trpc-prisma-starter
 cd trpc-prisma-starter

@@ -10,6 +10,7 @@ import 'styles/global.css';
 import superjson from 'superjson';
 import 'tailwindcss/tailwind.css';
 import { getBaseUrl } from 'utils/trpc';
+import { motion } from 'framer-motion';
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   useEffect(() => {
@@ -34,7 +35,20 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         }}
       />
       <div className="flex flex-col justify-between min-h-screen">
-        <Component {...pageProps} />
+        <motion.div
+          initial="initial"
+          animate="animate"
+          variants={{
+            initial: {
+              opacity: 0,
+            },
+            animate: {
+              opacity: 1,
+            },
+          }}
+        >
+          <Component {...pageProps} />
+        </motion.div>
       </div>
     </>
   );

@@ -79,7 +79,7 @@ function SearchForm() {
         id="search"
         className="block w-full text-center border-gray-300 rounded-md shadow-sm focus:ring-primary-600 focus:border-primary-500 sm:text-lg"
         name="q"
-        placeholder="Search for anything..."
+        placeholder='Search for anything (e.g. "node react")'
         onChange={(e) => {
           const newValue = e.target.value;
           setValue(newValue);
@@ -95,6 +95,7 @@ function SearchForm() {
 }
 function HeroSection() {
   const sources = useQuery(['public.sources']);
+  const isDev = useIsDev();
   return (
     <div className="py-10 text-center">
       <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
@@ -123,6 +124,19 @@ function HeroSection() {
           )
         </span>
       </p>
+
+      {isDev && (
+        <div className="max-w-md mx-auto mt-5 sm:flex sm:justify-center md:mt-8">
+          <Link href="/add">
+            <a
+              type="button"
+              className="inline-flex items-center px-6 py-3 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+            >
+              Post a Job for FREE
+            </a>
+          </Link>
+        </div>
+      )}
       <div className="max-w-md mx-auto mt-5 sm:flex sm:justify-center md:mt-8">
         <SearchForm />
       </div>

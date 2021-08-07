@@ -16,20 +16,23 @@ export const algoliaRouter = createRouter()
     },
   })
   .query('public.search', {
-    input: z
-      .object({
-        query: z.string().nullish(),
-        cursor: z.number().nullish(),
-      })
-      .nullish(),
+    input: z.object({
+      query: z.string().nullish(),
+      cursor: z.number().nullish(),
+      variant: z.union([z.literal('internal'), z.literal('external')]),
+    }),
     async resolve({ input }) {
-      const args = input ?? {};
-      const query = args.query ?? '';
-      const page = args.cursor ?? 0;
+      const query = input.query ?? '';
+      const page = input.cursor ?? 0;
 
       const raw = await algoliaIndex.search<AlgoliaJob>(query, {
         page,
         filters: '__tags:not-deleted',
+        facetFilters: [
+          input.variant === 'internal'
+            ? `sourceSlug:"typescript.careers"`
+            : 'sourceSlug:-"typescript.careers"',
+        ],
       });
 
       const fieldsForHighlights = [

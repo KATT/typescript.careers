@@ -82,6 +82,7 @@ async function updateSettings() {
       //
       '__tags',
       'location',
+      'sourceSlug',
     ],
   });
 }

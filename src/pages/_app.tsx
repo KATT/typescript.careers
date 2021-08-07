@@ -4,13 +4,12 @@ import { loggerLink } from '@trpc/client/links/loggerLink';
 import { withTRPC } from '@trpc/next';
 import { DefaultSeo } from 'next-seo';
 import { AppType } from 'next/dist/next-server/lib/utils';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { AppRouter } from 'server/routers/app';
 import 'styles/global.css';
 import superjson from 'superjson';
 import 'tailwindcss/tailwind.css';
 import { getBaseUrl } from 'utils/trpc';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const MyApp: AppType = ({ Component, pageProps, router }) => {
   useEffect(() => {
@@ -38,16 +37,7 @@ const MyApp: AppType = ({ Component, pageProps, router }) => {
         }}
       />
       <div className="flex flex-col justify-between min-h-screen">
-        <AnimatePresence initial={false} exitBeforeEnter>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            key={router.route}
-          >
-            <Component {...pageProps} key={router.route} />
-          </motion.div>
-        </AnimatePresence>
+        <Component {...pageProps} key={router.route} />
       </div>
     </>
   );

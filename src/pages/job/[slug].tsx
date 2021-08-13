@@ -17,7 +17,6 @@ export default function JobPage() {
   const query = useQuery(['job.public.bySlug', slug]);
 
   const item = query.data;
-  console.log('job', item);
   const isDev = useIsDev();
 
   return (

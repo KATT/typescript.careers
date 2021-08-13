@@ -3,25 +3,21 @@ import { httpBatchLink } from '@trpc/client/links/httpBatchLink';
 import { loggerLink } from '@trpc/client/links/loggerLink';
 import { withTRPC } from '@trpc/next';
 import { DefaultSeo } from 'next-seo';
-import { AppType } from 'next/dist/next-server/lib/utils';
-import { useEffect, useRef } from 'react';
+import { AppType } from 'next/dist/shared/lib/utils';
+import { useEffect } from 'react';
 import { AppRouter } from 'server/routers/app';
 import 'styles/global.css';
 import superjson from 'superjson';
 import 'tailwindcss/tailwind.css';
 import { getBaseUrl } from 'utils/trpc';
 
-const MyApp: AppType = ({ Component, pageProps, router }) => {
+const MyApp: AppType = ({ Component, pageProps }) => {
   useEffect(() => {
     splitbee.init({
       scriptUrl: '/bee.js',
       apiUrl: '/_hive',
     });
   }, []);
-  const isMounted = useRef(false);
-  useEffect(() => {
-    isMounted.current = true;
-  });
   return (
     <>
       <DefaultSeo
@@ -37,7 +33,7 @@ const MyApp: AppType = ({ Component, pageProps, router }) => {
         }}
       />
       <div className="flex flex-col justify-between min-h-screen">
-        <Component {...pageProps} key={router.route} />
+        <Component {...pageProps} />
       </div>
     </>
   );

@@ -62,6 +62,7 @@
     "abort-controller": "^3.0.0",
     "algoliasearch": "^4.10.3",
     "autoprefixer": "^10.3.1",
+    "aws-sdk": "^2.967.0",
     "clsx": "^1.1.1",
     "envsafe": "^2.0.3",
     "eslint": "^7.22.0",

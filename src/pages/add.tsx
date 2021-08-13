@@ -1,3 +1,5 @@
+import { zodResolver } from '@hookform/resolvers/zod';
+
 export default function Example() {
   return (
     <div className="lg:grid lg:grid-cols-12 lg:gap-x-5">

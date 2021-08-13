@@ -17,14 +17,25 @@ model AppState {
   lastReindex DateTime?
 }
 
-model Company {
-  id       String  @id @default(uuid())
-  name     String  @unique
-  logoUrl  String?
-  logoLqip String?
-  url      String?
+model Image {
+  id          String    @id @default(uuid())
+  url         String    @unique
+  lqip        String
+  width       Int
+  height      Int
+  Company     Company[]
+  originalUrl String?   @unique
+}
 
-  Job Job[]
+model Company {
+  id      String  @id @default(uuid())
+  name    String  @unique
+  logo    Image?  @relation(fields: [logoId], references: [id])
+  logoUrl String?
+  url     String?
+
+  Job    Job[]
+  logoId String?
 }
 
 model Source {

@@ -11,6 +11,7 @@ import { useRouter } from 'next/dist/client/router';
 import ReactMarkdown from 'react-markdown';
 import { useQuery } from 'utils/trpc';
 
+import NextError from 'next/error';
 export default function JobPage() {
   const slug = useRouter().query.slug as string;
 
@@ -19,6 +20,10 @@ export default function JobPage() {
   const item = query.data;
   const isDev = useIsDev();
 
+  if (query.error) {
+    const statusCode = query.error.data?.httpStatus ?? 500;
+    return <NextError title={query.error.message} statusCode={statusCode} />;
+  }
   return (
     <>
       <Main>

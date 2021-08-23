@@ -865,38 +865,38 @@
   resolved "https://registry.npmjs.org/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@trpc/client@^8.4.2":
-  version "8.4.2"
-  resolved "https://registry.npmjs.org/@trpc/client/-/client-8.4.2.tgz#912288d6a3bbfa9850bd39a0b3f7ce11effe8511"
-  integrity sha512-WxPIHC6sibZ+yE2GnPadvv43fO9rPqtgknkzyTuZtrBexjq9YuzuUENrw2gjeougFal9O4MZ13OJNwTbQ43PRg==
+"@trpc/client@^9.0.0-alpha.6":
+  version "9.0.0-alpha.6"
+  resolved "https://registry.npmjs.org/@trpc/client/-/client-9.0.0-alpha.6.tgz#c64701408c569519fea4945ff3143ed9e21cd581"
+  integrity sha512-+yXlmo/UvpFKNpuo1IAz0cOzj2ejurFiF9Dop/L48V0OSCDVXauAKcRI6Jq+f4zxnosQ2NP06i1AseYXvFsEFw==
   dependencies:
     "@babel/runtime" "^7.9.0"
-    "@trpc/server" "^8.4.2"
+    "@trpc/server" "^9.0.0-alpha.6"
 
-"@trpc/next@^8.4.2":
-  version "8.4.2"
-  resolved "https://registry.npmjs.org/@trpc/next/-/next-8.4.2.tgz#31a082072cc576fd72a539a755b0daafc6828dcb"
-  integrity sha512-Z8iRMGnRvm0NMPmtKeUqoe3r3EO2BMrFvpjbUHh/FEPpQc3s3zvJcmOa4k0aC7RYikFqK+nMwEFnCVNaEXhvaQ==
+"@trpc/next@^9.0.0-alpha.6":
+  version "9.0.0-alpha.6"
+  resolved "https://registry.npmjs.org/@trpc/next/-/next-9.0.0-alpha.6.tgz#7d9707bdfa41c06ed0d1fd01562568bc63998fc4"
+  integrity sha512-FAqdX+ocfYHw4LvEih8OyJ2TcsjOb4v4Ts4h8xnOb3Q+MRXRjYdbvII+0dBXZnlWt4xZVWznYNfpfIXBIHU01Q==
   dependencies:
     "@babel/runtime" "^7.9.0"
-    "@trpc/client" "^8.4.2"
-    "@trpc/react" "^8.4.2"
-    "@trpc/server" "^8.4.2"
+    "@trpc/client" "^9.0.0-alpha.6"
+    "@trpc/react" "^9.0.0-alpha.6"
+    "@trpc/server" "^9.0.0-alpha.6"
     react-ssr-prepass "^1.4.0"
 
-"@trpc/react@^8.4.2":
-  version "8.4.2"
-  resolved "https://registry.npmjs.org/@trpc/react/-/react-8.4.2.tgz#9f78e966fad81f96845ee8d9e02175376fa7d5a0"
-  integrity sha512-dAcSIrxPFVkX1/+FsJXLaiDNEY6rUe+WRYfnip+fslBiY8CcmPRZr4yASgdJqdrihpgSDi5tfdXrcsEY8jcLDA==
+"@trpc/react@^9.0.0-alpha.6":
+  version "9.0.0-alpha.6"
+  resolved "https://registry.npmjs.org/@trpc/react/-/react-9.0.0-alpha.6.tgz#279bad36b20e3a195ee614b862dcb77e9a3225de"
+  integrity sha512-AkRx4peysJqduW1Bo5qKm4QbzFMDkR66ijVk7pCQtYcQvbyC0iDdUI6i6sPriBMTWUimlyUZX9iNTTmocFHvog==
   dependencies:
     "@babel/runtime" "^7.9.0"
-    "@trpc/client" "^8.4.2"
-    "@trpc/server" "^8.4.2"
+    "@trpc/client" "^9.0.0-alpha.6"
+    "@trpc/server" "^9.0.0-alpha.6"
 
-"@trpc/server@^8.4.2":
-  version "8.4.2"
-  resolved "https://registry.npmjs.org/@trpc/server/-/server-8.4.2.tgz#925ea2637a8327cedad8accd7ead6de9ee148ba2"
-  integrity sha512-i00omlfV5t0t3GMKzIFJsv2Uu2xqL998OGG8TSV/82aGv2a9AYuTP1yjNKnoAH+oc908r0N7ak1oXI3FZ3vEKw==
+"@trpc/server@^9.0.0-alpha.6":
+  version "9.0.0-alpha.6"
+  resolved "https://registry.npmjs.org/@trpc/server/-/server-9.0.0-alpha.6.tgz#a3e3a62b1ce41cc82868b9e0dac62c3dbc9a1f48"
+  integrity sha512-kzkdrOk5xlcUSzBPH9h2j3zIz1tdwy9W0BmE8g3MiV56OEjT0STO84XiaLral9h7u/X7t4EkmkSi/8jBPOR89w==
   dependencies:
     tslib "^2.1.0"
 
@@ -999,10 +999,10 @@
   resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.8.tgz#edf1bf1dbf4e04413ca8e5b17b3b7d7d54b59818"
   integrity sha512-YSBPTLTVm2e2OoQIDYx8HaeWJ5tTToLH67kXR7zYNGupXMEHa2++G8k+DczX2cFVgalypqtyZIcU19AFcmOpmg==
 
-"@types/lodash@^4.14.171":
-  version "4.14.171"
-  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.171.tgz#f01b3a5fe3499e34b622c362a46a609fdb23573b"
-  integrity sha512-7eQ2xYLLI/LsicL2nejW9Wyko3lcpN6O/z0ZLHrEQsg280zIdCv1t/0m6UtBjUHokCGBQ3gYTbHzDkZ1xOBwwg==
+"@types/lodash@^4.14.172":
+  version "4.14.172"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.172.tgz#aad774c28e7bfd7a67de25408e03ee5a8c3d028a"
+  integrity sha512-/BHF5HAx3em7/KkzVKm3LrsD6HZAXuXO1AJZQ3cRRBZj4oHZDviWPYu0aEplAqDFNHZPW6d3G7KN+ONcCCC7pw==
 
 "@types/mdast@^3.0.0":
   version "3.0.7"
@@ -1044,10 +1044,10 @@
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"
   integrity sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
 
-"@types/react@^17.0.0":
-  version "17.0.14"
-  resolved "https://registry.npmjs.org/@types/react/-/react-17.0.14.tgz#f0629761ca02945c4e8fea99b8177f4c5c61fb0f"
-  integrity sha512-0WwKHUbWuQWOce61UexYuWTGuGY/8JvtUe/dtQ6lR4sZ3UiylHotJeWpf3ArP9+DSGUoLY3wbU59VyMrJps5VQ==
+"@types/react@^17.0.19":
+  version "17.0.19"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.19.tgz#8f2a85e8180a43b57966b237d26a29481dacc991"
+  integrity sha512-sX1HisdB1/ZESixMTGnMxH9TDe8Sk709734fEQZzCV/4lSu9kJCPbo2PbTRoZM+53Pp0P10hYVyReUueGwUi4A==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"

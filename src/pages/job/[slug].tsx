@@ -8,10 +8,10 @@ import { Main } from 'components/Main';
 import { useIsDev } from 'hooks/useIsDev';
 import { JobPostingJsonLd } from 'next-seo';
 import { useRouter } from 'next/dist/client/router';
+import NextError from 'next/error';
 import ReactMarkdown from 'react-markdown';
 import { useQuery } from 'utils/trpc';
 
-import NextError from 'next/error';
 export default function JobPage() {
   const slug = useRouter().query.slug as string;
 

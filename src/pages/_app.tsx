@@ -83,12 +83,14 @@ export default withTRPC<AppRouter>({
    */
   ssr: true,
   responseMeta({ clientErrors, ctx }) {
+    // errors
     if (clientErrors.length) {
       // propagate http first error from API calls
       return {
         status: clientErrors[0].data?.httpStatus ?? 500,
       };
     }
+    // caching
     const parts = new URL(`http://localhost` + ctx.req?.url);
     if (parts.pathname === '/' || parts.pathname.startsWith('/job/')) {
       console.log('🏎 Caching:', parts.pathname);
@@ -98,7 +100,6 @@ export default withTRPC<AppRouter>({
         'Cache-Control': `s-maxage=1, stale-while-revalidate=${ONE_DAY_IN_SECONDS}`,
       };
     }
-    // for app caching with SSR see https://trpc.io/docs/caching
 
     return {};
   },

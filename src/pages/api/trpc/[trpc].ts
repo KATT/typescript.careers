@@ -22,7 +22,7 @@ export default trpcNext.createNextApiHandler({
   },
   responseMeta({ paths, ctx }) {
     // assuming you have a router prefixed with `public.` where you colocate publicly accessible routes
-    const isPublic = paths && !paths.every((path) => path.includes('public'));
+    const isPublic = paths && paths.every((path) => path.includes('public'));
 
     // check if it's a query & public
     if (ctx?.req.method === 'GET' && isPublic) {
@@ -31,7 +31,7 @@ export default trpcNext.createNextApiHandler({
       const ONE_DAY_IN_SECONDS = 60 * 60 * 24;
       return {
         headers: {
-          'Cache-Control': `s-maxage=1, stale-while-revalidate=${ONE_DAY_IN_SECONDS}`,
+          'cache-control': `s-maxage=1, stale-while-revalidate=${ONE_DAY_IN_SECONDS}`,
         },
       };
     }

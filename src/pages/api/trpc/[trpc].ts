@@ -20,10 +20,21 @@ export default trpcNext.createNextApiHandler({
       console.error('❌ ❌ ❌ Something went wrong', error);
     }
   },
-  /**
-   * Enable query batching
-   */
-  batching: {
-    enabled: true,
+  responseMeta({ paths, ctx }) {
+    // assuming you have a router prefixed with `public.` where you colocate publicly accessible routes
+    const isPublic = paths && !paths.every((path) => path.includes('public'));
+
+    // check if it's a query & public
+    if (ctx?.req.method === 'GET' && isPublic) {
+      console.log('🏎 Caching:', ctx.req.url);
+      // cache request for 1 day + revalidate once every second
+      const ONE_DAY_IN_SECONDS = 60 * 60 * 24;
+      return {
+        headers: {
+          'Cache-Control': `s-maxage=1, stale-while-revalidate=${ONE_DAY_IN_SECONDS}`,
+        },
+      };
+    }
+    return {};
   },
 });

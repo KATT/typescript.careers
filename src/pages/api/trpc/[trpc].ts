@@ -20,12 +20,13 @@ export default trpcNext.createNextApiHandler({
       console.error('❌ ❌ ❌ Something went wrong', error);
     }
   },
-  responseMeta({ paths, ctx }) {
-    // assuming you have a router prefixed with `public.` where you colocate publicly accessible routes
-    const isPublic = paths && paths.every((path) => path.includes('public'));
-
+  responseMeta({ paths, ctx, errors }) {
     // check if it's a query & public
-    if (ctx?.req.method === 'GET' && isPublic) {
+    if (
+      errors.length === 0 &&
+      ctx?.req.method === 'GET' &&
+      paths?.every((path) => path.includes('public'))
+    ) {
       console.log('🏎 Caching:', ctx.req.url);
       // cache request for 1 day + revalidate once every second
       const ONE_DAY_IN_SECONDS = 60 * 60 * 24;

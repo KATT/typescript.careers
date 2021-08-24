@@ -83,25 +83,17 @@ export default withTRPC<AppRouter>({
    */
   ssr: true,
   responseMeta({ clientErrors, ctx }) {
-    console.log('responseMeta', ctx.res?.statusCode);
     // errors
     if (clientErrors.length) {
       // propagate http first error from API calls
       const status = clientErrors[0].data?.httpStatus ?? 500;
-      console.warn('❌ render errors', status, clientErrors);
+      console.warn('❌ render errors', { status, clientErrors });
       return {
         status,
       };
     }
     // caching
     const parts = new URL(`http://localhost` + ctx.req?.url);
-    console.log(
-      'parts',
-      parts,
-      ctx.req?.url,
-      'statusCode',
-      ctx.res?.statusCode,
-    );
     if (parts.pathname === '/' || parts.pathname.startsWith('/job/')) {
       console.log('🏎 Caching:', parts.pathname);
       // cache full page for 1 day + revalidate once every second

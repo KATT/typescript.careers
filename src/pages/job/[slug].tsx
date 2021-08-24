@@ -23,8 +23,8 @@ export default function JobPage() {
   if (query.error) {
     const statusCode = query.error.data?.httpStatus ?? 500;
     const title = query.error.message;
-    console.log('rendering error', { statusCode, title });
-    return <NextError title={query.error.message} statusCode={statusCode} />;
+
+    return <NextError {...{ title, statusCode }} />;
   }
   return (
     <>

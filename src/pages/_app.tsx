@@ -85,10 +85,11 @@ export default withTRPC<AppRouter>({
   responseMeta({ clientErrors, ctx }) {
     // errors
     if (clientErrors.length) {
-      console.warn('❌ render errors', clientErrors);
       // propagate http first error from API calls
+      const status = clientErrors[0].data?.httpStatus ?? 500;
+      console.warn('❌ render errors', status, clientErrors);
       return {
-        status: clientErrors[0].data?.httpStatus ?? 500,
+        status,
       };
     }
     // caching

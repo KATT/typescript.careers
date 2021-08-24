@@ -83,6 +83,7 @@ export default withTRPC<AppRouter>({
    */
   ssr: true,
   responseMeta({ clientErrors, ctx }) {
+    console.log('responseMeta', ctx.res?.statusCode);
     // errors
     if (clientErrors.length) {
       // propagate http first error from API calls

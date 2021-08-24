@@ -94,7 +94,13 @@ export default withTRPC<AppRouter>({
     }
     // caching
     const parts = new URL(`http://localhost` + ctx.req?.url);
-    console.log('parts', parts, ctx.req?.url);
+    console.log(
+      'parts',
+      parts,
+      ctx.req?.url,
+      'statusCode',
+      ctx.res?.statusCode,
+    );
     if (parts.pathname === '/' || parts.pathname.startsWith('/job/')) {
       console.log('🏎 Caching:', parts.pathname);
       // cache full page for 1 day + revalidate once every second

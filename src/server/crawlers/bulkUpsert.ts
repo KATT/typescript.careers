@@ -22,6 +22,10 @@ type BulkUpsertJobProps = {
   source: Source;
   items: UpsertJobItems;
 };
+
+function getShortId() {
+  return Math.random().toString(36).slice(-6);
+}
 export async function bulkUpsertJobs(props: BulkUpsertJobProps) {
   const typescriptRegex = /typescript/i;
   const frontendRegex = /react|vue/i;
@@ -68,7 +72,7 @@ export async function bulkUpsertJobs(props: BulkUpsertJobProps) {
             },
           },
           update: jobWithSourceId,
-          create: jobWithSourceId,
+          create: { ...jobWithSourceId, shortId: getShortId() },
         }),
       ];
     }),
@@ -86,4 +90,20 @@ export async function bulkUpsertJobs(props: BulkUpsertJobProps) {
       deletedAt: new Date(),
     },
   });
+
+  // TMP FIXME TODO delete me give short ids to jobs without id
+  const jobsWithNoShortId = await prisma.job.findMany({
+    select: { id: true },
+    where: { shortId: null },
+  });
+  await Promise.all(
+    jobsWithNoShortId.map(({ id }) =>
+      prisma.job.update({
+        where: { id },
+        data: {
+          shortId: getShortId(),
+        },
+      }),
+    ),
+  );
 }

@@ -18,13 +18,14 @@ model AppState {
 }
 
 model Image {
-  id          String    @id @default(uuid())
-  url         String    @unique
+  id          String   @id @default(uuid())
+  blob        Bytes
   lqip        String
+  mimetype    String
   width       Int
   height      Int
-  Company     Company[]
-  originalUrl String?   @unique
+  Company     Company?
+  originalUrl String?  @unique
 }
 
 model Company {
@@ -54,6 +55,7 @@ enum JobType {
 
 model Job {
   id          String   @id @default(uuid())
+  shortId     String?  @unique
   title       String
   url         String
   applyUrl    String

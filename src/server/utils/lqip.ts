@@ -8,8 +8,13 @@ const toBase64 = (extMimeType: string, data: Buffer) => {
 
 // https://github.com/zouhir/lqip/blob/master/index.js
 export const lqipFromBlob = async (blob: Blob) => {
-  const text = `data:${blob.type};base64,${await blob.text()}`;
-  console.log('text', text);
+  const content = await blob.text();
+  console.log({ content });
+  const text = `data:${blob.type};base64,${content.replace(
+    /^data:image\/\w+;base64,/,
+    '',
+  )}`;
+
   const image = await jimp.read(text);
   const original = {
     width: image.bitmap.width,

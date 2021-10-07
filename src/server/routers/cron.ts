@@ -1,20 +1,12 @@
-import aws from 'aws-sdk';
-import { createRouter } from 'server/trpc';
-import { alogliaReindex } from 'server/utils/algolia';
 import { bulkUpsertJobs } from 'server/crawlers/bulkUpsert';
 import { SOURCES } from 'server/crawlers/sources';
-import { z } from 'zod';
-import { env } from 'server/env';
+import { createRouter } from 'server/trpc';
+import { alogliaReindex } from 'server/utils/algolia';
 import { lqipFromBlob } from 'server/utils/lqip';
+import { z } from 'zod';
+import fetch from 'node-fetch';
+import { Prisma } from '@prisma/client';
 
-const s3 = new aws.S3();
-
-aws.config.update({
-  accessKeyId: env.S3_ACCESS_KEY_ID,
-  secretAccessKey: env.S3_ACCESS_KEY_SECRET,
-  region: env.S3_REGION,
-  signatureVersion: 'v4',
-});
 export const cronRouter = createRouter()
   // TODO make private / auth
   .mutation('reindex', {
@@ -35,50 +27,54 @@ export const cronRouter = createRouter()
       console.log({ companiesWithNewLogos });
       for (const company of companiesWithNewLogos) {
         console.log('Checking if ', company.logoUrl, 'needs downloading');
-        const logoUrl = company.logoUrl;
-        if (!logoUrl) continue;
-        const imageExists = await ctx.prisma.image.findUnique({
-          where: {
-            originalUrl: logoUrl,
-          },
-        });
-        if (!imageExists) {
-          console.log('Downloading image', logoUrl);
+        try {
+          const logoUrl = company.logoUrl;
+          if (!logoUrl) continue;
+          const imageExists = await ctx.prisma.image.findUnique({
+            where: {
+              originalUrl: logoUrl,
+            },
+          });
+          if (imageExists) {
+            continue;
+          }
+          console.log('--Downloading image', logoUrl);
           const res = await fetch(logoUrl);
           const blob = await res.blob();
-          if (blob && res.ok) {
-            const { lqip, width, height } = await lqipFromBlob(blob);
-            const key = logoUrl.replace(/^https?\:\/\//, '').toLowerCase();
-            const url = await new Promise<string>((resolve, reject) => {
-              s3.upload(
-                {
-                  Key: key,
-                  Bucket: env.S3_BUCKET_NAME,
-                  Body: blob,
-                  ACL: 'public-read',
-                },
-                (err, data) => {
-                  if (err) {
-                    console.error('S3 error', err);
-                    reject(err);
-                  } else {
-                    resolve(data.Location);
-                  }
-                },
-              );
-            });
-            console.log({ url, width, height, lqip });
-          }
-        }
 
-        // await ctx.prisma.company.update({
-        //   where: {
-        //     id: company.id,
-        //   },
-        //   data: {
-        //     logoUrl: null,
-        //   },
-        // });
+          if (!blob || !res.ok) {
+            continue;
+          }
+          console.log({ logoUrl });
+          const { lqip, width, height } = await lqipFromBlob(blob);
+          console.log({ width, height, logoUrl });
+          const imageData: Prisma.ImageCreateInput = {
+            blob: await res.buffer(),
+            originalUrl: logoUrl,
+            lqip,
+            width,
+            height,
+            mimetype: blob.type,
+          };
+          const image = await ctx.prisma.image.upsert({
+            where: {
+              originalUrl: logoUrl,
+            },
+            create: imageData,
+            update: imageData,
+          });
+          await ctx.prisma.company.update({
+            where: {
+              id: company.id,
+            },
+            data: {
+              logoUrl: null,
+              logoId: image.id,
+            },
+          });
+        } catch (err) {
+          console.log('Failed', (err as any).message, (err as any).stack);
+        }
       }
       return null;
     },

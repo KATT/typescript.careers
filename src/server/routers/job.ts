@@ -15,12 +15,17 @@ export const jobRouter = createRouter()
     async resolve({ ctx, input }) {
       const parts = input.split('-');
       const [sourceSlug, sourceKey] = parts;
-      const job = await ctx.prisma.job.findUnique({
+      const job = await ctx.prisma.job.findFirst({
         where: {
-          sourceSlug_sourceKey: {
-            sourceKey,
-            sourceSlug,
-          },
+          OR: [
+            {
+              shortId: parts[0],
+            },
+            {
+              sourceKey,
+              sourceSlug,
+            },
+          ],
         },
         include: {
           company: true,

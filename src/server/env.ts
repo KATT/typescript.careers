@@ -3,6 +3,8 @@ import { bool, envsafe, num, str, url } from 'envsafe';
 if (typeof window !== 'undefined') {
   throw new Error('This should not be imported in the browser');
 }
+
+export const LOCAL_STORAGE = 'LOCAL';
 /*eslint sort-keys: "error"*/
 export const env = envsafe({
   ALGOLIA_ADMIN_KEY: str({

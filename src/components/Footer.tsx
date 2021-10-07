@@ -7,6 +7,7 @@ export function Footer() {
   const sources = useQuery(['public.sources']);
   const reindex = useMutation('cron.reindex');
   const pull = useMutation('cron.pull');
+  const images = useMutation('cron.images');
   const isDev = useIsDev();
   return (
     <footer className="bg-gray-800" aria-labelledby="footer-heading">
@@ -91,6 +92,19 @@ export function Footer() {
                         )}
                       >
                         reindex
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => images.mutate(null)}
+                        disabled={images.isLoading}
+                        className={clsx(
+                          'text-base text-gray-300 hover:text-white',
+                          images.isLoading &&
+                            'animate-pulse cursor-not-allowed',
+                        )}
+                      >
+                        pull images
                       </button>
                     </li>
                   </ul>

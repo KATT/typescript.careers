@@ -12,6 +12,11 @@ const sources: Omit<Source, 'id'>[] = [
     url: 'https://remotive.io',
     name: 'Remotive',
   },
+  {
+    slug: 'typescript.careers',
+    url: 'https://typescript.careers',
+    name: 'TypeScript.careers',
+  },
 ];
 async function main() {
   const promises = sources.map((source) =>

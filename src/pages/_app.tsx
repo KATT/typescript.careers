@@ -18,7 +18,6 @@ const MyApp: AppType = ({ Component, pageProps }) => {
       apiUrl: '/_hive',
     });
   }, []);
-
   return (
     <>
       <DefaultSeo

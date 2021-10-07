@@ -18,7 +18,12 @@ import Link from 'next/link';
 import { Fragment, useEffect, useMemo, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useIsDev } from '../hooks/useIsDev';
-import { inferQueryOutput, useQuery, useUtils } from '../utils/trpc';
+import {
+  inferQueryInput,
+  inferQueryOutput,
+  useQuery,
+  useUtils,
+} from '../utils/trpc';
 
 function useFilters() {
   return useParams({
@@ -29,21 +34,26 @@ function useFilters() {
     },
   });
 }
-function useJobsQuery() {
+type SearchInput = inferQueryInput<'algolia.public.search'>;
+function useSearch() {
   const filters = useFilters();
   const values = filters.values;
   const input = useMemo(
-    () => ({ query: values.q, cursor: values.page - 1 }),
+    () => ({
+      query: values.q,
+      cursor: values.page - 1,
+      variant: 'external' as const,
+    }),
     [values.page, values.q],
   );
-  const jobsQuery = useQuery(['algolia.public.search', input], {
+  const query = useQuery(['algolia.public.search', input], {
     keepPreviousData: true,
   });
   const hasPrevPage = values.page > 1;
   const hasNextPage = !!(
-    jobsQuery.data?.nbPages && values.page < jobsQuery.data.nbPages
+    query.data?.nbPages && values.page < query.data.nbPages
   );
-  return { jobsQuery, hasPrevPage, hasNextPage, filters };
+  return { query: query, hasPrevPage, hasNextPage, filters, input };
 }
 
 function SearchForm() {
@@ -69,7 +79,7 @@ function SearchForm() {
         id="search"
         className="block w-full text-center border-gray-300 rounded-md shadow-sm focus:ring-primary-600 focus:border-primary-500 sm:text-lg"
         name="q"
-        placeholder="Search for anything..."
+        placeholder='Search for anything (e.g. "node react")'
         onChange={(e) => {
           const newValue = e.target.value;
           setValue(newValue);
@@ -85,6 +95,7 @@ function SearchForm() {
 }
 function HeroSection() {
   const sources = useQuery(['public.sources']);
+  const isDev = useIsDev();
   return (
     <div className="py-10 text-center">
       <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
@@ -113,6 +124,19 @@ function HeroSection() {
           )
         </span>
       </p>
+
+      {isDev && (
+        <div className="max-w-md mx-auto mt-5 sm:flex sm:justify-center md:mt-8">
+          <Link href="/add">
+            <a
+              type="button"
+              className="inline-flex items-center px-6 py-3 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+            >
+              Post a Job for FREE
+            </a>
+          </Link>
+        </div>
+      )}
       <div className="max-w-md mx-auto mt-5 sm:flex sm:justify-center md:mt-8">
         <SearchForm />
       </div>
@@ -237,7 +261,7 @@ function JobListItem(props: {
 }
 
 function JobListPagination() {
-  const { jobsQuery, filters, hasPrevPage, hasNextPage } = useJobsQuery();
+  const { query: jobsQuery, filters, hasPrevPage, hasNextPage } = useSearch();
   const { values, getParams } = filters;
   const data = jobsQuery.data;
   return (
@@ -294,42 +318,36 @@ function JobListPagination() {
 }
 
 export default function IndexPage() {
-  const { values } = useFilters();
-  const input = useMemo(
-    () => ({ query: values.q, cursor: values.page - 1 }),
-    [values.page, values.q],
-  );
-  const jobsQuery = useQuery(['algolia.public.search', input], {
-    keepPreviousData: true,
-  });
+  const search = useSearch();
   const utils = useUtils();
 
-  const hasPrevPage = values.page > 1;
+  const hasPrevPage = search.input.cursor > 0;
   const hasNextPage = !!(
-    jobsQuery.data?.nbPages && jobsQuery.data.nbPages > values.page
+    search.query.data?.nbPages &&
+    search.query.data?.nbPages > search.input.cursor
   );
   // prefetch next/prev page
   useEffect(() => {
     hasPrevPage &&
       utils.prefetchQuery([
         'algolia.public.search',
-        { ...input, cursor: input.cursor - 1 },
+        { ...search.input, cursor: search.input.cursor - 1 },
       ]);
     hasNextPage &&
       utils.prefetchQuery([
         'algolia.public.search',
-        { ...input, cursor: input.cursor + 1 },
+        { ...search.input, cursor: search.input.cursor + 1 },
       ]);
-  }, [hasNextPage, hasPrevPage, input, utils]);
+  }, [hasNextPage, hasPrevPage, search.input, utils]);
 
   // prefetch all items
   useEffect(() => {
-    jobsQuery.data?.hits.forEach((hit) =>
+    search.query.data?.hits.forEach((hit) =>
       utils.prefetchQuery(['job.public.bySlug', hit.$slug]),
     );
-  }, [jobsQuery.data?.hits, utils]);
+  }, [search.query.data?.hits, utils]);
 
-  const data = jobsQuery.data;
+  const data = search.query?.data;
   return (
     <>
       <Head>
@@ -345,7 +363,7 @@ export default function IndexPage() {
         <div
           className={clsx(
             `max-w-5xl mx-auto my-4 overflow-hidden bg-white shadow sm:rounded-md`,
-            jobsQuery.isFetching && 'animate-pulse',
+            search.query.isFetching && 'animate-pulse',
           )}
         >
           {data?.hits.length === 0 && (

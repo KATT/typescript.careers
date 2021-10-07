@@ -17,13 +17,26 @@ model AppState {
   lastReindex DateTime?
 }
 
+model Image {
+  id          String   @id @default(uuid())
+  blob        Bytes
+  lqip        String
+  mimetype    String
+  width       Int
+  height      Int
+  Company     Company?
+  originalUrl String?  @unique
+}
+
 model Company {
   id      String  @id @default(uuid())
   name    String  @unique
+  logo    Image?  @relation(fields: [logoId], references: [id])
   logoUrl String?
   url     String?
 
-  Job Job[]
+  Job    Job[]
+  logoId String?
 }
 
 model Source {
@@ -42,6 +55,7 @@ enum JobType {
 
 model Job {
   id          String   @id @default(uuid())
+  shortId     String?  @unique
   title       String
   url         String
   applyUrl    String

@@ -60,6 +60,7 @@
     "algoliasearch": "^4.10.3",
     "autoprefixer": "^10.3.1",
     "clsx": "^1.1.1",
+    "cross-env": "^7.0.3",
     "envsafe": "^2.0.3",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.0",
@@ -94,8 +95,5 @@
   },
   "publishConfig": {
     "access": "restricted"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3"
   }
 }

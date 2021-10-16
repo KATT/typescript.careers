@@ -878,38 +878,38 @@
   resolved "https://registry.npmjs.org/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@trpc/client@^9.2.0":
-  version "9.2.0"
-  resolved "https://registry.npmjs.org/@trpc/client/-/client-9.2.0.tgz#8f392c3be52ba7ce20184067d8e115719ae38a39"
-  integrity sha512-9f0/n1rsPhicfW6dB7a541se5Q7MTd/DnMWzFrX9VEORI7RUbpT5MeMRGsTq5Zx4qv3gbf7I+TCaiPEyHuaatg==
+"@trpc/client@9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1+418a5b0e", "@trpc/client@^9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1+418a5b0e":
+  version "9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1"
+  resolved "https://registry.npmjs.org/@trpc/client/-/client-9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1.tgz#99c56ad4da677eb6461e0dda2b6b4fe3881ae6a7"
+  integrity sha512-5ryyeZZm5UeIpNmb8DrIIKTwLbTdH95EadFI2U4OaoJQ8bcVoamlE+yFKL4hgxAsKZldNRiPugjKx/AQnXXYDQ==
   dependencies:
     "@babel/runtime" "^7.9.0"
-    "@trpc/server" "^9.2.0"
+    "@trpc/server" "^9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1+418a5b0e"
 
-"@trpc/next@^9.2.0":
-  version "9.2.0"
-  resolved "https://registry.npmjs.org/@trpc/next/-/next-9.2.0.tgz#5e81f019fbb36e3d4f74cf1d1ee8d4709d21db8a"
-  integrity sha512-CnCoOLReRvTXEnR6QmhE+vOBh5o9gfeExPGPhlC4lGkyy0vbYt/V+QUuuT/ISS1yMUux8JOq+8UG9Q0HiiTx6A==
+"@trpc/next@9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1+418a5b0e":
+  version "9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1"
+  resolved "https://registry.npmjs.org/@trpc/next/-/next-9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1.tgz#8540edd10cfe23a4946e5c110e668c687afff687"
+  integrity sha512-XvlbuNKfpFnpghKxKYB2nK4EORmwWDNCyVs77bsd5+VwEhqcIVt/wCGsD8/RCqTJ4HGosMSqEh8Ss/bUiQPsMQ==
   dependencies:
     "@babel/runtime" "^7.9.0"
-    "@trpc/client" "^9.2.0"
-    "@trpc/react" "^9.2.0"
-    "@trpc/server" "^9.2.0"
+    "@trpc/client" "^9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1+418a5b0e"
+    "@trpc/react" "^9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1+418a5b0e"
+    "@trpc/server" "^9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1+418a5b0e"
     react-ssr-prepass "^1.4.0"
 
-"@trpc/react@^9.2.0":
-  version "9.2.0"
-  resolved "https://registry.npmjs.org/@trpc/react/-/react-9.2.0.tgz#7d839a18eb799b3ddf97faa4c8a397670b5bc15a"
-  integrity sha512-FYNX5c9iG7DAb9edI28EMV7GKson59WwSWTmkXKKkcU8ZlVGhc6qqdiGXzP7HHSu3LtU5H7GF9Km2zEaJYjV9Q==
+"@trpc/react@9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1+418a5b0e", "@trpc/react@^9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1+418a5b0e":
+  version "9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1"
+  resolved "https://registry.npmjs.org/@trpc/react/-/react-9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1.tgz#0a879a6fe963aea5b3ecc67b977a8f1c81ddc194"
+  integrity sha512-nnF599q+dJ7yVUoGXxsZBiSbV16YYcGeWFcWE5Yf2+IhEVnnPIYfka10xONRMI3+vXnu7KveAAImgDMHvRAnuQ==
   dependencies:
     "@babel/runtime" "^7.9.0"
-    "@trpc/client" "^9.2.0"
-    "@trpc/server" "^9.2.0"
+    "@trpc/client" "^9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1+418a5b0e"
+    "@trpc/server" "^9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1+418a5b0e"
 
-"@trpc/server@^9.2.0":
-  version "9.2.0"
-  resolved "https://registry.npmjs.org/@trpc/server/-/server-9.2.0.tgz#1f8474c24b826cfcfb88dd2f9ac76baa4ecea0de"
-  integrity sha512-Q7WjXvTxTkgfrTHeq4eT6QReYqM2iwksoErdoB7SbvVVx0hiDvPafO8dGh5YpOBwQR7ZQOweZ5KcCJVq8D98vA==
+"@trpc/server@9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1+418a5b0e", "@trpc/server@^9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1+418a5b0e":
+  version "9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1"
+  resolved "https://registry.npmjs.org/@trpc/server/-/server-9.10.1-katt-play-no-multi-entry-2021-10-16-14-46-17.1.tgz#70a3d43e1bfb2e481c5c9ee95ea489f950d25e2e"
+  integrity sha512-8MuoMD+LG5ApQDqjdiMT0l29iqUXamcy0lSyOYx63/viJyAu4wrW4q6xN8H+S/T/kARhSRnyyDT+tBzczAf/4g==
   dependencies:
     tslib "^2.1.0"
 

@@ -878,62 +878,62 @@
   resolved "https://registry.npmjs.org/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@trpc/client@9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e":
-  version "9.10.1-katt-esm-2021-10-16-23-04-40.10"
-  resolved "https://registry.npmjs.org/@trpc/client/-/client-9.10.1-katt-esm-2021-10-16-23-04-40.10.tgz#0a2f18d2c7efbefc8e6ce7ef9cb57712cc64e70f"
-  integrity sha512-VlIMZq+0taSjBs944yIo16sAxIHaiTaxtAITKYpnegxZlM1G3/ou/oi4urVKaQMVQQVJdSx80xQKpVQEmzd4dw==
+"@trpc/client@9.9.2-katt-nuxt-2021-10-16-23-46-48.75+cd497a56":
+  version "9.9.2-katt-nuxt-2021-10-16-23-46-48.75"
+  resolved "https://registry.npmjs.org/@trpc/client/-/client-9.9.2-katt-nuxt-2021-10-16-23-46-48.75.tgz#bae271486ed1105ac5881ae4d6b0f3c44e326a71"
+  integrity sha512-14JSw8kT/OLkOoC0Xgez+p9nEwfZj1rd1fT/WUDcEtX3CRKVdHzOK8wL2oT49UqUJG3aBrt7rqK7NxwjxRxzfQ==
   dependencies:
     "@babel/runtime" "^7.9.0"
-    "@trpc/server" "^9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e"
+    "@trpc/server" "^9.9.2-katt-nuxt-2021-10-16-23-46-48.75+cd497a56"
 
-"@trpc/client@^9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e", "@trpc/client@^9.10.1-katt-play-no-multi-entry-2021-10-16-15-37-22.2+7fbd929e":
-  version "9.10.1-katt-play-no-multi-entry-2021-10-16-15-37-22.2"
-  resolved "https://registry.npmjs.org/@trpc/client/-/client-9.10.1-katt-play-no-multi-entry-2021-10-16-15-37-22.2.tgz#b70d0a922e35430dbbcb2c1d1092668dbf8bde85"
-  integrity sha512-JeGqFrFHjoTiXiSQ49rFMBRudgGed4ozZuqGTBe7jFhD7Z6PPcLzcJq+qONpPuCjwi6nIm2/3oowt/TBr0SKWw==
+"@trpc/client@^9.10.0", "@trpc/client@^9.9.2-katt-nuxt-2021-10-16-23-46-48.75+cd497a56":
+  version "9.10.0"
+  resolved "https://registry.npmjs.org/@trpc/client/-/client-9.10.0.tgz#a2cffbde5cf73a1e34d472df707d8041bf3fe9b7"
+  integrity sha512-2nGYumW8UYop1G2cqDOl0Uv3hmCM9W4EGZ6i847vdUErAkgfbcQNCPnOX+zAZtzhgY6QS4W/sn0K7iSdImx7Jw==
   dependencies:
     "@babel/runtime" "^7.9.0"
-    "@trpc/server" "^9.10.1-katt-play-no-multi-entry-2021-10-16-15-37-22.2+7fbd929e"
+    "@trpc/server" "^9.10.0"
 
-"@trpc/next@9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e":
-  version "9.10.1-katt-esm-2021-10-16-23-04-40.10"
-  resolved "https://registry.npmjs.org/@trpc/next/-/next-9.10.1-katt-esm-2021-10-16-23-04-40.10.tgz#a0629f95bb7fca28d56c76f9d1c21efe39f34215"
-  integrity sha512-JGelHcI4jCWrNNDjCrzv0q5mVzqGjgMXQLcLgM53qYrHzw+k0RA/Xe22zWVs2WzzT6TxUQFyGW49DGUZTuKfKQ==
+"@trpc/next@9.9.2-katt-nuxt-2021-10-16-23-46-48.75+cd497a56":
+  version "9.9.2-katt-nuxt-2021-10-16-23-46-48.75"
+  resolved "https://registry.npmjs.org/@trpc/next/-/next-9.9.2-katt-nuxt-2021-10-16-23-46-48.75.tgz#93e7c23c9c8a31d7e070708d37caf158305fbe43"
+  integrity sha512-SY+cFZeeSPfpmMHOqkz2y7j5gAQ4g647DL53wAi8ZD442/ngK04em848m3ubqNPJgxy7PETi/Xjk4PjB2hlNrw==
   dependencies:
     "@babel/runtime" "^7.9.0"
-    "@trpc/client" "^9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e"
-    "@trpc/react" "^9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e"
-    "@trpc/server" "^9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e"
+    "@trpc/client" "^9.9.2-katt-nuxt-2021-10-16-23-46-48.75+cd497a56"
+    "@trpc/react" "^9.9.2-katt-nuxt-2021-10-16-23-46-48.75+cd497a56"
+    "@trpc/server" "^9.9.2-katt-nuxt-2021-10-16-23-46-48.75+cd497a56"
     react-ssr-prepass "^1.4.0"
 
-"@trpc/react@9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e":
-  version "9.10.1-katt-esm-2021-10-16-23-04-40.10"
-  resolved "https://registry.npmjs.org/@trpc/react/-/react-9.10.1-katt-esm-2021-10-16-23-04-40.10.tgz#c1865c70ff38d576138a0aa7a180da090c24d812"
-  integrity sha512-Z2m9AqeJlU61RWLLyGGqiMY+ong9WXgel3IkMEBvArWAzU7q8uVcyDvOrqTJWET924MOPV0C8NOA9AJGpwapcg==
+"@trpc/react@9.9.2-katt-nuxt-2021-10-16-23-46-48.75+cd497a56":
+  version "9.9.2-katt-nuxt-2021-10-16-23-46-48.75"
+  resolved "https://registry.npmjs.org/@trpc/react/-/react-9.9.2-katt-nuxt-2021-10-16-23-46-48.75.tgz#56d08c95375593d91320b7d621ab3057bde9c554"
+  integrity sha512-vW23XHgKBUbUf4kfNMi4z5uoqcoNCZ/CaUWXwAQ5IjJcYnqqLOJc5HeIVHlhYtfaxdlC2hBPOdoxyzq/v5LsPQ==
   dependencies:
     "@babel/runtime" "^7.9.0"
-    "@trpc/client" "^9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e"
-    "@trpc/server" "^9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e"
+    "@trpc/client" "^9.9.2-katt-nuxt-2021-10-16-23-46-48.75+cd497a56"
+    "@trpc/server" "^9.9.2-katt-nuxt-2021-10-16-23-46-48.75+cd497a56"
 
-"@trpc/react@^9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e":
-  version "9.10.1-katt-play-no-multi-entry-2021-10-16-15-37-22.2"
-  resolved "https://registry.npmjs.org/@trpc/react/-/react-9.10.1-katt-play-no-multi-entry-2021-10-16-15-37-22.2.tgz#7042072bd6868be80f85851f43d071f53f340e87"
-  integrity sha512-SIpJGyJEock40gyzKwYKK06fjGyUtr2xmX58Rx6IAtZyCJ/ob/OkRJeGnsEUbovioDI537/gWr0OyXmV3HsDAA==
+"@trpc/react@^9.9.2-katt-nuxt-2021-10-16-23-46-48.75+cd497a56":
+  version "9.10.0"
+  resolved "https://registry.npmjs.org/@trpc/react/-/react-9.10.0.tgz#790cd069ea43830a1cb86098b4c61ac30ece8141"
+  integrity sha512-ORJGtWAaaiCvoY+pbqqtfGOBT4K7kw0PVlh3s5Qo8asOPuuLChXPCiRTPhrIRpYZ2ToRzYDiul/0GH5OtZbzKQ==
   dependencies:
     "@babel/runtime" "^7.9.0"
-    "@trpc/client" "^9.10.1-katt-play-no-multi-entry-2021-10-16-15-37-22.2+7fbd929e"
-    "@trpc/server" "^9.10.1-katt-play-no-multi-entry-2021-10-16-15-37-22.2+7fbd929e"
+    "@trpc/client" "^9.10.0"
+    "@trpc/server" "^9.10.0"
 
-"@trpc/server@9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e":
-  version "9.10.1-katt-esm-2021-10-16-23-04-40.10"
-  resolved "https://registry.npmjs.org/@trpc/server/-/server-9.10.1-katt-esm-2021-10-16-23-04-40.10.tgz#e263f5ac53b5249a9c94b332b4382d85f81cdcbe"
-  integrity sha512-4EmGajDsjc08jAk1ThRasRaj7tvhuWft7lICiBCf0pUolwqdbFYFNn/lJAFeqK3D/bGa4i4Q8GOog9uNxJluDA==
+"@trpc/server@9.9.2-katt-nuxt-2021-10-16-23-46-48.75+cd497a56":
+  version "9.9.2-katt-nuxt-2021-10-16-23-46-48.75"
+  resolved "https://registry.npmjs.org/@trpc/server/-/server-9.9.2-katt-nuxt-2021-10-16-23-46-48.75.tgz#8a501696664e6b23dea9340da72732b477001421"
+  integrity sha512-FMOTgI5jgGv0uk4NZJ8UU/Zrvt1kGd1r8ck4EJAdM3D92nIu97nDNw4YCjdGkg9wFB+06W26WDKBwvULUnwMWA==
   dependencies:
     tslib "^2.1.0"
 
-"@trpc/server@^9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e", "@trpc/server@^9.10.1-katt-play-no-multi-entry-2021-10-16-15-37-22.2+7fbd929e":
-  version "9.10.1-katt-play-no-multi-entry-2021-10-16-15-37-22.2"
-  resolved "https://registry.npmjs.org/@trpc/server/-/server-9.10.1-katt-play-no-multi-entry-2021-10-16-15-37-22.2.tgz#77b93b607b2edbfe0b41e0878e4e5731972bfbb1"
-  integrity sha512-5F++Tus7xtoJSze4Z/uiRnZRp5XuqGl66t1DWPqeacyjKoAE+M81n+3uTYwIDWXod/kZxwFpb91WXKbrmhA44g==
+"@trpc/server@^9.10.0", "@trpc/server@^9.9.2-katt-nuxt-2021-10-16-23-46-48.75+cd497a56":
+  version "9.10.0"
+  resolved "https://registry.npmjs.org/@trpc/server/-/server-9.10.0.tgz#c695531d220b2a6a6c32d3fef74216b6a5a696d2"
+  integrity sha512-blipx40NvmjFp91Frt+oqSrzx6blkyQXVxidoSFLifDh84qA/0A6h8kQJUevSNq1+m6iUDPo8RppWtIfibjKkw==
   dependencies:
     tslib "^2.1.0"
 

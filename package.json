@@ -19,7 +19,7 @@
     "generate": "prisma generate",
     "migrate-dev": "prisma migrate dev",
     "migrate": "prisma migrate deploy",
-    "seed": "prisma db seed --preview-feature",
+    "seed": "prisma db seed",
     "ts-node": "ts-node --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\"",
     "start": "next start",
     "studio": "prisma studio",

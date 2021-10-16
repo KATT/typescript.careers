@@ -99,8 +99,9 @@ export async function alogliaReindex(opts: { flush?: boolean } = {}) {
 
   console.log('♻️', { now });
   await setAppState({ lastReindex: now });
-  console.log('♻️ updating settings');
+  console.time('♻️ updating settings');
   await updateSettings();
+  console.timeEnd('♻️ updating settings');
 
   return {
     count: items.length,

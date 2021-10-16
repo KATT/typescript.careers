@@ -47,10 +47,10 @@
     "@splitbee/web": "^0.2.4",
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/typography": "^0.4.1",
-    "@trpc/client": "9.10.1-katt-esm-2021-10-16-22-07-08.6+1d932635",
-    "@trpc/next": "9.10.1-katt-esm-2021-10-16-22-07-08.6+1d932635",
-    "@trpc/react": "9.10.1-katt-esm-2021-10-16-22-07-08.6+1d932635",
-    "@trpc/server": "9.10.1-katt-esm-2021-10-16-22-07-08.6+1d932635",
+    "@trpc/client": "9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e",
+    "@trpc/next": "9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e",
+    "@trpc/react": "9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e",
+    "@trpc/server": "9.10.1-katt-esm-2021-10-16-23-04-40.10+dc43a35e",
     "@types/jest": "^27.0.1",
     "@types/lodash": "^4.14.172",
     "@types/node": "^16.11.0",
@@ -93,7 +93,7 @@
     "ts-jest": "^27.0.5",
     "ts-node": "^10.3.0",
     "turndown": "^7.1.1",
-    "typescript": "^4.4.4",
+    "typescript": "^4.5.0-dev.20211016",
     "zod": "^3.0.0"
   },
   "publishConfig": {

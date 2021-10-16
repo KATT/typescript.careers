@@ -63,13 +63,6 @@ yarn test-start # runs e2e tests on `next start` - build required before
 yarn dev-nuke # resets local db
 ```
 
-## ℹ️ How to switch from SQLite to Postgres
-
-How to switch to postgres
-
-- Remove migrations: `rm -rf ./prisma/migrations`
-- Update: `./prisma/schema.prisma` (see commented code)
-
 ---
 
 Created by [@alexdotjs](https://twitter.com/alexdotjs).

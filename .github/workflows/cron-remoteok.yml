@@ -1,0 +1,21 @@
+name:
+
+on:
+  # "Scheduled workflows run on the latest commit on the default or base branch."
+  # — https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#schedule
+  schedule:
+    # Runs “At minute 0, 15, 30, and 45.” (see https://crontab.guru)
+    - cron: '0,15,30,45 * * * *'
+jobs:
+  remoteok:
+    env:
+      APP_URL: ${{ secrets.APP_URL }}
+      CRON_API_KEY: ${{ secrets.CRON_API_KEY }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: cURL request
+        run: |
+          curl '${{ secrets.APP_URL }}/api/trpc/cron.pull?batch=1' \
+           -H 'content-type: application/json' \
+           --data-raw '{"0":{"json":"remoteok"}}' \
+           --compressed

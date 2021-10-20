@@ -5,9 +5,9 @@ on:
   # — https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#schedule
   schedule:
     # (see https://crontab.guru)
-    - cron: '0,30 * * * *'
+    - cron: '15,45 * * * *'
 jobs:
-  remoteok:
+  remotive:
     env:
       APP_URL: ${{ secrets.APP_URL }}
       CRON_API_KEY: ${{ secrets.CRON_API_KEY }}
@@ -17,5 +17,5 @@ jobs:
         run: |
           curl '${{ secrets.APP_URL }}/api/trpc/cron.pull?batch=1' \
            -H 'content-type: application/json' \
-           --data-raw '{"0":{"json":"remoteok"}}' \
+           --data-raw '{"0":{"json":"remotive"}}' \
            --compressed

@@ -5,7 +5,7 @@ on:
   # — https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#schedule
   schedule:
     # (see https://crontab.guru)
-    - cron: '15,45,53 * * * *'
+    - cron: '15,45,53,55 * * * *'
 jobs:
   remotive:
     env:
